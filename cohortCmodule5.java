@@ -90,83 +90,77 @@ public class Main {
            }
            
         
-            //decalare any required variables here
-            boolean isThreaten = false;
+         //decalare any required variables here
+         boolean isThreaten = false;
             
-            //check whether the pawn is threatened or not
-            
-            //your code here
-        //print the chess board if the pawn is threatened by the queen
-        if (xP == xQ){
-            isThreaten = true;
-            if(yP < yQ){
-                for(int i = yP+1; i<yQ; i++){
-                    board[xP][i] = 3;
-                }
-            } else{
-                for(int i = yQ + 1; i<yP; i++){
-                    board[xP][i] = 3;
-                }
-            }
-        } else if(yP == yQ){
-            isThreaten = true;
-            if(xP > xQ){
-                for(int i = xQ + 1; i<xP; i++){
-                    board[i][yP] = 3;
-                }
-            }
-            else{
-                for(int i = xP + 1; i < xQ; i++){
-                    board[i][yP] = 3;
-                }
-            }
-        }   else if(Math.abs(xP-xQ) == Math.abs(yP - yQ) ){
-            isThreaten = true;
-            if(xQ < xP && yQ < yP){
-                for(int i = 1; i< xP - xQ; i++){
-                    board[xQ + i][xQ + i] = 3;
-                }
-            }
-            else if(xQ < xP && yQ > yP){
-                for(int i = 1; i< xP - xQ; i++){
-                    board[xQ + i][xQ - i] = 3;
-                }
-            }
-            else if(xQ > xP && yQ > yP){
-                for(int i = 1; i< xQ - xP; i++){
-                    board[xQ - i][xQ - i] = 3;
-                }
-            }
-            else if(xQ > xP && yQ < yP){
-                for(int i = 1; i< xQ - xP; i++){
-                    board[xQ + i][xQ - i] = 3;
-                }
-            }
-        }
+         //check whether the pawn is threatened or not and update board
+         if (xP == xQ){
+             isThreaten = true;
+             if(yP < yQ){
+                 for(int i = yP+1; i<yQ; i++){
+                     board[xP][i] = 3;
+                 }
+             } else{
+                 for(int i = yQ + 1; i<yP; i++){
+                     board[xP][i] = 3;
+                 }
+             }
+         } else if(yP == yQ){
+             isThreaten = true;
+             if(xP > xQ){
+                 for(int i = xQ + 1; i<xP; i++){
+                     board[i][yP] = 3;
+                 }
+             }
+             else{
+                 for(int i = xP + 1; i < xQ; i++){
+                     board[i][yP] = 3;
+                 }
+             }
+         }   else if(Math.abs(xP-xQ) == Math.abs(yP - yQ) ){
+             isThreaten = true;
+             if(xQ < xP && yQ < yP){
+                 for(int i = 1; i< xP - xQ; i++){
+                     board[xQ + i][xQ + i] = 3;
+                 }
+             }
+             else if(xQ < xP && yQ > yP){
+                 for(int i = 1; i< xP - xQ; i++){
+                     board[xQ + i][xQ - i] = 3;
+                 }
+             }
+             else if(xQ > xP && yQ > yP){
+                 for(int i = 1; i< xQ - xP; i++){
+                     board[xQ - i][xQ - i] = 3;
+                 }
+             }
+             else if(xQ > xP && yQ < yP){
+                 for(int i = 1; i< xQ - xP; i++){
+                     board[xQ + i][xQ - i] = 3;
+                 }
+             }
+         }
 
-        if(isThreaten){
-            System.out.println("YES");
-            for(int i = 0; i<board.length; i++){
-                for(int j = 0; j<board[i].length; j++){
-                    if(board[i][j] == 1){
-                        System.out.print("Q\t");
-                    }
-                    else if(board[i][j] == 2){
-                        System.out.print("P\t");
-                    }
-                    else if(board[i][j] == 3){
-                        System.out.print("X\t");
-                    }
-                    else System.out.print("0\t");
-                }
-                System.out.println();
-            }
-        } else System.out.println("NO");
-        }
-        System.out.println();
-        
-        
-        
+         if(isThreaten){
+             System.out.println("YES");
+             for(int i = 0; i<board.length; i++){
+                 for(int j = 0; j<board[i].length; j++){
+                     if(board[i][j] == 1){
+                         System.out.print("Q\t");
+                     }
+                     else if(board[i][j] == 2){
+                         System.out.print("P\t");
+                     }
+                     else if(board[i][j] == 3){
+                         System.out.print("X\t");
+                     }
+                     else System.out.print("0\t");
+                 }
+                 System.out.println();
+             }
+         } else System.out.println("NO");
+         }
+         System.out.println();
     }
     
     static void task3(){
